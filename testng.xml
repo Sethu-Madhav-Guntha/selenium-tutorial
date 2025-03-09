@@ -3,7 +3,10 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-      <class name="com.selenium.basicTests.WebsiteTest"/>
+      <class name="com.selenium.basicTests.WebsiteHeadlessTest"/>
+      <class name="com.selenium.basicTests.WebsiteGUITest"/>
+      <class name="com.selenium.basicTests.BrowserInputTest"/>
+      <class name="com.selenium.basicTests.BrowserCLATest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
