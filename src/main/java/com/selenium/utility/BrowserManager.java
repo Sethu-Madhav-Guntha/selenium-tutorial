@@ -12,13 +12,19 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariDriver;
 
+import com.selenium.pageObjects.BasePage;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.github.bonigarcia.wdm.config.DriverManagerType;
 
 /**
  * Used for browser manager
  */
-public class BrowserManager extends BaseClass {
+public class BrowserManager extends BasePage {
+	
+	public BrowserManager(WebDriver driver) {
+		super(driver);
+	}
 
 	public WebDriver lauchWebsiteByBrowser(String browser, String website, boolean isHeadless) {
 		driverObj = lauchBrowser(browser, isHeadless);
@@ -112,14 +118,4 @@ public class BrowserManager extends BaseClass {
 		driverObj.quit();
 	}
 
-	public void getUrlDetails() {
-		System.out.println("Webpage Details:");
-		System.out.println("--------------------------------------------------");
-		System.out.println("Title: " + driverObj.getTitle());
-		System.out.println("URL: " + driverObj.getCurrentUrl());
-		System.out.println("Window Handle: " + driverObj.getWindowHandle());
-		System.out.println("Window Dimensions: " + driverObj.manage().window().getSize());
-		System.out.println("Cookies List: \n" + driverObj.manage().getCookies());
-		System.out.println("--------------------------------------------------");
-	}
 }

@@ -6,9 +6,9 @@ import org.testng.annotations.Test;
 
 import com.selenium.utility.BrowserManager;
 
-public class BrowserCLATest {
+public class BrowserCLATest extends BaseTest {
 		
-		BrowserManager browserManagerObj = new BrowserManager();
+		BrowserManager browserManagerObj = new BrowserManager(driver);
 		
 		String defaultBrowserInput = "firefox";
 		boolean defaultIsHeadlessInput = false;
@@ -16,19 +16,19 @@ public class BrowserCLATest {
 		boolean isHeadless = Boolean.parseBoolean(System.getProperty("headless", Boolean.toString(defaultIsHeadlessInput)));
 		String browser = System.getProperty("browser", defaultBrowserInput);
 
-		@BeforeMethod
-		public void doBeforeTest() {
-			System.out.println("**************************************************");
-			System.out.println("-------------Test Execution Started---------------");
-			System.out.println("--------------------------------------------------");
-		}
-
-		@AfterMethod
-		public void doAfterTest() {
-			System.out.println("--------------------------------------------------");
-			System.out.println("-----------Test Execution Completed---------------");
-			System.out.println("**************************************************");
-		}
+//		@BeforeMethod
+//		public void doBeforeTest() {
+//			System.out.println("**************************************************");
+//			System.out.println("-------------Test Execution Started---------------");
+//			System.out.println("--------------------------------------------------");
+//		}
+//
+//		@AfterMethod
+//		public void doAfterTest() {
+//			System.out.println("--------------------------------------------------");
+//			System.out.println("-----------Test Execution Completed---------------");
+//			System.out.println("**************************************************");
+//		}
 		
 		@Test
 		public void testingWebsiteOnInputBrowser() {

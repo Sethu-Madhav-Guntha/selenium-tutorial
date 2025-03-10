@@ -6,26 +6,26 @@ import org.testng.annotations.Test;
 
 import com.selenium.utility.BrowserManager;
 
-public class BrowserInputTest {
+public class BrowserInputTest extends BaseTest {
 		
-		BrowserManager browserManagerObj = new BrowserManager();
+		BrowserManager browserManagerObj = new BrowserManager(driver);
 		
 		String browser = "safari";
 		boolean isHeadless = true;
 
-		@BeforeMethod
-		public void doBeforeTest() {
-			System.out.println("**************************************************");
-			System.out.println("-------------Test Execution Started---------------");
-			System.out.println("--------------------------------------------------");
-		}
-
-		@AfterMethod
-		public void doAfterTest() {
-			System.out.println("--------------------------------------------------");
-			System.out.println("-----------Test Execution Completed---------------");
-			System.out.println("**************************************************");
-		}
+//		@BeforeMethod
+//		public void doBeforeTest() {
+//			System.out.println("**************************************************");
+//			System.out.println("-------------Test Execution Started---------------");
+//			System.out.println("--------------------------------------------------");
+//		}
+//
+//		@AfterMethod
+//		public void doAfterTest() {
+//			System.out.println("--------------------------------------------------");
+//			System.out.println("-----------Test Execution Completed---------------");
+//			System.out.println("**************************************************");
+//		}
 		
 		@Test
 		public void testingWebsiteOnInputBrowser() {
