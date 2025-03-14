@@ -7,6 +7,7 @@
       <class name="com.selenium.basicTests.WebsiteGUITest"/>
       <class name="com.selenium.basicTests.BrowserInputTest"/>
       <class name="com.selenium.basicTests.BrowserCLATest"/>
+      <class name="com.selenium.elementTests.TextBoxTests"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

@@ -2,7 +2,9 @@ package com.selenium.utility;
 
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Set;
 
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -12,31 +14,40 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariDriver;
 
-import com.selenium.pageObjects.BasePage;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.github.bonigarcia.wdm.config.DriverManagerType;
 
 /**
  * Used for browser manager
  */
-public class BrowserManager extends BasePage {
+public class BrowserUtils extends BasePage {
+
+	public BrowserUtils(WebDriver driverObj) {
+		super(driverObj);
+	}
 	
-	public BrowserManager(WebDriver driver) {
-		super(driver);
+	public BrowserDetails getBrowserDetails() {
+		Set<Cookie> cookies = driverObj.manage().getCookies();
+		return new BrowserDetails(driverObj.getTitle(), driverObj.getCurrentUrl(), driverObj.getWindowHandle(),
+				driverObj.manage().window().getSize(), cookies);
+	}
+
+	public void printBrowserDetails() {
+		BrowserDetails details = getBrowserDetails();
+		System.out.println(details);
 	}
 
 	public WebDriver lauchWebsiteByBrowser(String browser, String website, boolean isHeadless) {
 		driverObj = lauchBrowser(browser, isHeadless);
 		navigateToWebsite(website);
-		getUrlDetails();
+		System.out.println(getBrowserDetails().getTitle());
 		return driverObj;
 	}
 
 	public WebDriver lauchWebsiteByBrowser(String browser, boolean isHeadless) {
 		driverObj = lauchBrowser(browser, isHeadless);
 		navigateToWebsite("https://google.com");
-		getUrlDetails();
+		System.out.println(getBrowserDetails().getTitle());
 		return driverObj;
 	}
 
